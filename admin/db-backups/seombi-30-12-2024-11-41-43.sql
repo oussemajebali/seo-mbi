@@ -3,10 +3,10 @@
 -- Rainbow PHP Framework - Database Backup Tool
 -- 
 --
--- Host Connection Info: localhost via TCP/IP
--- Generation Time: November 28, 2017 at 17:11 PM
--- Server version: 5.6.11
--- PHP Version: 5.5.1
+-- Host Connection Info: Localhost via UNIX socket
+-- Generation Time: December 30, 2024 at 23:41 PM
+-- Server version: 8.0.40-0ubuntu0.22.04.1
+-- PHP Version: 8.2.26
 --
 -- ---------------------------------------------------------
 
@@ -15,12 +15,12 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `atozv2` --
+-- Database: `seombi` --
 --
 
 -- Table `admin` --
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `user` text,
   `pass` text,
   `admin_name` text,
@@ -28,84 +28,125 @@ CREATE TABLE `admin` (
   `admin_reg_date` text,
   `admin_reg_ip` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `admin` (`id`, `user`, `pass`, `admin_name`, `admin_logo`, `admin_reg_date`, `admin_reg_ip`) VALUES
+(1, 'anis@mbi-network.com', 'b26c491efc05e3d5f62b7031deea6a82', 'anisaidoudi', 'admin/theme/default/dist/img/admin.jpg', '30th December 2024', '197.26.89.151');
 
 -- Table `admin_history` --
 CREATE TABLE `admin_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `last_date` varchar(255) DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   `browser` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 
-
--- Table  `ddos` --
-CREATE TABLE `ddos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ip` varchar(200) DEFAULT NULL,
-  `data` blob,
-  `banned` int(11) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+INSERT INTO `admin_history` (`id`, `last_date`, `ip`, `browser`) VALUES
+(2, '30th December 2024', '197.26.89.151', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0');
 
 -- Table `ads` --
 CREATE TABLE `ads` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `text_ads` text,
   `ad720x90` text,
   `ad250x300` text,
   `ad250x125` text,
   `ad480x60` text,
+  `smallSEOAd` text,
+  `smallSEOAd1` text,
+  `smallSEOAd2` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
-INSERT INTO `ads` (`id`, `text_ads`, `ad720x90`, `ad250x300`, `ad250x125`, `ad480x60`) VALUES
-(1, '&lt;br /&gt;Try Pro IP locator Script Today! &lt;a title=&quot;Get Pro IP locator Script&quot; href=&quot;http://prothemes.biz/index.php?route=product/product&amp;path=65&amp;product_id=59&quot;&gt;CLICK HERE&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;\r\n\r\nGet 20,000 Unique Traffic for $5 [Limited Time Offer] - &lt;a title=&quot;Get 20,000 Unique Traffic&quot; href=&quot;http://prothemes.biz&quot;&gt;Buy Now! CLICK HERE&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;\r\n\r\nA to Z SEO Tools - Get Now for $35 ! &lt;a title=&quot;50 SEO Tools Bundle&quot; href=&quot;https://codecanyon.net/item/atoz-seo-tools-search-engine-optimization-tools/12170678?ref=Rainbowbalaji&quot;&gt;CLICK HERE&lt;/a&gt;&lt;br /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/720x90.png&quot; /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/250x300.png&quot; /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/250x125.png&quot; /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/468x70.png&quot; /&gt;');
+INSERT INTO `ads` (`id`, `text_ads`, `ad720x90`, `ad250x300`, `ad250x125`, `ad480x60`, `smallSEOAd`, `smallSEOAd1`, `smallSEOAd2`) VALUES
+(1, '&lt;br /&gt;Try Pro IP locator Script Today! &lt;a title=&quot;Get Pro IP locator Script&quot; href=&quot;http://prothemes.biz/index.php?route=product/product&amp;path=65&amp;product_id=59&quot;&gt;CLICK HERE&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;\r\n\r\nGet 20,000 Unique Traffic for $5 [Limited Time Offer] - &lt;a title=&quot;Get 20,000 Unique Traffic&quot; href=&quot;http://prothemes.biz&quot;&gt;Buy Now! CLICK HERE&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;\r\n\r\nA to Z SEO Tools - Get Now for $35 ! &lt;a title=&quot;50 SEO Tools Bundle&quot; href=&quot;https://codecanyon.net/item/atoz-seo-tools-search-engine-optimization-tools/12170678?ref=Rainbowbalaji&quot;&gt;CLICK HERE&lt;/a&gt;&lt;br /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/720x90.png&quot; /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/250x300.png&quot; /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/250x125.png&quot; /&gt;', '&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/468x70.png&quot; /&gt;', '&lt;br&gt;&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/720x90.png&quot; /&gt;', '&lt;br&gt;&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/720x90.png&quot; /&gt;&lt;br&gt;', '&lt;br&gt;&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/300x250.png&quot; /&gt;&lt;br&gt;');
 
 -- Table `banned_ip` --
 CREATE TABLE `banned_ip` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `ip` varchar(255) DEFAULT NULL,
   `added_at` varchar(255) DEFAULT NULL,
   `reason` text,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- Table `capthca` --
 CREATE TABLE `capthca` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `cap_options` text,
   `cap_data` text,
   `cap_type` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `capthca` (`id`, `cap_options`, `cap_data`, `cap_type`) VALUES
 (1, '{\"register_page\":true,\"login_page\":true,\"contact_page\":true,\"allseo_page\":false,\"reset_pass_page\":true,\"resend_act_page\":true,\"admin_login_page\":false}', '{\"recap\":{\"cap_name\":\"Google Recaptcha v2 (Tickbox Method)\",\"recap_seckey\":\"\",\"recap_sitekey\":\"\"},\"phpcap\":{\"cap_name\":\"Built-in PHP Image Verification\",\"mode\":\"Normal\",\"allowed\":\"ABCDEFGHJKLMNPRSTUVWXYZabcdefghjkmnprstuvwxyz234567891\",\"color\":\"#ffffff\",\"mul\":\"yes\"}}', 'phpcap');
 
+-- Table `category` --
+CREATE TABLE `category` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` text,
+  `des` text,
+  `sort` int DEFAULT NULL,
+  `pattern` int DEFAULT NULL,
+  `enabled` int DEFAULT NULL,
+  `tools` blob,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `category` (`id`, `name`, `des`, `sort`, `pattern`, `enabled`, `tools`) VALUES
+(1, 'Text Content', 'A complete set of text tools is now at your fingertips. Check plagiarism, rewrite an article, run a spell checker, count words or change text case.', 1, 2, 1, '[\\\"PR02\\\",\\\"PR01\\\",\\\"PR11\\\",\\\"PR39\\\"]'),
+(3, 'Keywords', 'For webmasters and SEO professionals, free, powerful and efficient keyword tools that provide you with thorough keyword research and analysis.', 2, 1, 1, '[\\\"PR06\\\",\\\"PR16\\\",\\\"PR48\\\"]'),
+(4, 'Backlink', 'A set of backlink analysis tool to give you a comprehensive inside view of your link profile.', 3, 1, 1, '[\\\"PR03\\\",\\\"PR09\\\",\\\"PR46\\\",\\\"PR13\\\",\\\"PR37\\\",\\\"PR32\\\"]'),
+(5, 'Website Management', 'If you are struggling to get more traffic and enhance your website performance, then use these website management tools and in-depth web analysis.', 4, 1, 1, '[\\\"PR40\\\",\\\"PR28\\\",\\\"PR08\\\",\\\"PR22\\\",\\\"PR27\\\",\\\"PR25\\\",\\\"US02\\\",\\\"PR31\\\",\\\"PR33\\\",\\\"PR44\\\",\\\"PR07\\\",\\\"PR35\\\",\\\"PR12\\\"]'),
+(6, 'Website Tracking', 'A list of free tools in one place to measure, monitor, and keep track of your websites performance.', 6, 1, 1, '[\\\"PR20\\\",\\\"PR29\\\",\\\"PR26\\\",\\\"PR38\\\",\\\"PR41\\\",\\\"PR10\\\",\\\"PR47\\\",\\\"PR45\\\",\\\"PR19\\\",\\\"PR24\\\",\\\"PR50\\\",\\\"PR49\\\",\\\"PR36\\\",\\\"PR23\\\",\\\"PR17\\\",\\\"PR15\\\",\\\"CS02\\\",\\\"PR43\\\",\\\"SD51\\\"]'),
+(7, 'Proxy', 'Use proxy tools to know your IP location or to get a free daily proxy list.', 7, 1, 1, '[\\\"PR15\\\",\\\"CS02\\\"]'),
+(8, 'Meta Tags', 'Create new meta tags or analyze the existing ones to get an in-depth analysis of your meta tags and web pages.', 9, 1, 1, '[\\\"PR04\\\",\\\"PR05\\\"]'),
+(9, 'Domains', 'A range of domain related tools to find out domain age, domain authority, DNS records or expired domains, etc.', 8, 1, 1, '[\\\"PR18\\\",\\\"PR49\\\",\\\"PR20\\\",\\\"PR34\\\",\\\"PR42\\\",\\\"PR30\\\"]'),
+(11, 'Images Editing', 'Create a favicon, compress an image or resize a picture with a single click. All essentials for image editing are available in one place.', 10, 1, 1, '[\\\"IHT01\\\",\\\"CO001\\\",\\\"AT5130\\\",\\\"AT5129\\\"]'),
+(19, 'Other', 'Simply useful tools for various tasks', 11, , 1, '[\\\"AT5136\\\",\\\"AT5135\\\",\\\"AT5132\\\",\\\"AT5133\\\",\\\"AT5134\\\",\\\"AT5131\\\"]');
+
+-- Table `category_option` --
+CREATE TABLE `category_option` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `category` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `category_option` (`id`, `category`) VALUES
+(1, 1);
+
+-- Table `ddos` --
+CREATE TABLE `ddos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `ip` varchar(200) DEFAULT NULL,
+  `data` blob,
+  `banned` int DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
 -- Table `interface` --
 CREATE TABLE `interface` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `theme` text,
   `lang` text,
   `available_languages` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `interface` (`id`, `theme`, `lang`, `available_languages`) VALUES
 (1, 'defaultext', 'en', 'a:1:{i:0;a:7:{i:0;s:1:\"1\";i:1;b:1;i:2;s:2:\"en\";i:3;s:7:\"English\";i:4;s:6:\"Balaji\";i:5;b:1;i:6;s:3:\"ltr\";}}');
 
 -- Table `lang` --
 CREATE TABLE `lang` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `code` text,
   `default_text` text,
   `lang_en` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=531 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=531 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `lang` (`id`, `code`, `default_text`, `lang_en`) VALUES
 (1, 'RF1', 'Home', 'Home'),
@@ -651,7 +692,7 @@ INSERT INTO `lang` (`id`, `code`, `default_text`, `lang_en`) VALUES
 
 -- Table `mail` --
 CREATE TABLE `mail` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `smtp_host` text,
   `smtp_username` text,
   `smtp_password` text,
@@ -660,19 +701,19 @@ CREATE TABLE `mail` (
   `smtp_auth` text,
   `smtp_socket` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `mail` (`id`, `smtp_host`, `smtp_username`, `smtp_password`, `smtp_port`, `protocol`, `smtp_auth`, `smtp_socket`) VALUES
 (1, '', '', '', '', '1', 'true', 'ssl');
 
 -- Table `mail_templates` --
 CREATE TABLE `mail_templates` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `subject` text,
   `body` blob,
   `code` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `mail_templates` (`id`, `subject`, `body`, `code`) VALUES
 (1, 'e1NpdGVOYW1lfSAtIEFjY291bnQgQWN0aXZhdGlvbg==', 'Jmx0O3AmZ3Q7V2VsY29tZSBhbmQgdGhhbmsgeW91IGZvciByZWdpc3RlcmluZyBhdCB7U2l0ZU5hbWV9Jmx0O2JyIC8mZ3Q7DQombHQ7YnIgLyZndDsNCklmIHlvdSBhcmUgdGhlIGNyZWF0b3Igb2YgdGhlIHtTaXRlTmFtZX0gYWNjb3VudCwgcGxlYXNlIGNsaWNrIHlvdXIgYWN0aXZhdGlvbiB1cmw6Jmx0O2JyIC8mZ3Q7DQombHQ7YSBocmVmPSZxdW90O3tWZXJpZmljYXRpb25Vcmx9JnF1b3Q7IHRhcmdldD0mcXVvdDtfc2VsZiZxdW90OyZndDt7VmVyaWZpY2F0aW9uVXJsfSZsdDsvYSZndDsmbHQ7YnIgLyZndDsNCiZsdDticiAvJmd0Ow0KQWZ0ZXIgYWNjb3VudCBjb25maXJtYXRpb24sIFlvdSBjYW4gbG9nIGluIGJ5IHVzaW5nIHlvdXIgdXNlcm5hbWUgYW5kIHBhc3N3b3JkIGJ5IHZpc2l0aW5nIG91ciB3ZWJzaXRlLiZsdDticiAvJmd0Ow0KJmx0O2JyIC8mZ3Q7DQpUaGFuayB5b3UsJmx0O2JyIC8mZ3Q7DQotIFRoZSB7U2l0ZU5hbWV9IFRlYW0mbHQ7L3AmZ3Q7', 'account_activation'),
@@ -680,7 +721,7 @@ INSERT INTO `mail_templates` (`id`, `subject`, `body`, `code`) VALUES
 
 -- Table `pages` --
 CREATE TABLE `pages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `type` text,
   `sort_order` text,
   `posted_date` text,
@@ -696,7 +737,7 @@ CREATE TABLE `pages` (
   `status` text,
   `access` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `pages` (`id`, `type`, `sort_order`, `posted_date`, `page_name`, `meta_des`, `meta_tags`, `page_title`, `page_content`, `header_show`, `footer_show`, `page_url`, `lang`, `status`, `access`) VALUES
 (1, 'internal', '1', '6th May 2017', '{{lang[RF1]}}', '-', '-', '{{lang[RF1]}}', 'YToyOntpOjA7czo0OiJub25lIjtpOjE7czo0OiJub25lIjt9', 'on', 'on', '{{baseLink}}', 'all', 'on', 'all'),
@@ -705,41 +746,41 @@ INSERT INTO `pages` (`id`, `type`, `sort_order`, `posted_date`, `page_name`, `me
 
 -- Table `plugins` --
 CREATE TABLE `plugins` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `execution_type` text,
   `privilege` text,
   `plugin_active` text,
   `plugin_con_name` text,
   `con_name` text,
   `plugin_info` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- Table `pr02` --
 CREATE TABLE `pr02` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `api_type` text,
   `wordLimit` text,
   `minChar` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `pr02` (`id`, `api_type`, `wordLimit`, `minChar`) VALUES
 (1, '1', '1000', '30');
 
 -- Table `pr24` --
 CREATE TABLE `pr24` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `moz_access_id` text,
   `moz_secret_key` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `pr24` (`id`, `moz_access_id`, `moz_secret_key`) VALUES
 (1, '', '');
 
 -- Table `rainbow_track` --
 CREATE TABLE `rainbow_track` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `date` text,
   `h0` blob,
   `h2` blob,
@@ -754,35 +795,44 @@ CREATE TABLE `rainbow_track` (
   `h20` blob,
   `h22` blob,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `rainbow_track` (`id`, `date`, `h0`, `h2`, `h4`, `h6`, `h8`, `h10`, `h12`, `h14`, `h16`, `h18`, `h20`, `h22`) VALUES
+(1, '2024-12-30', '', '', '', '', '', '', '', '', '', '', '', '{\\\"197.26.89.151\\\":{\\\"22uj24u0ct81heii1r08gpob02\\\":{\\\"username\\\":\\\"oussemajebali\\\",\\\"pageview\\\":\\\"7\\\",\\\"pages\\\":[[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/\\\",\\\"1\\\",\\\"1735580909\\\"],[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/account\\\\/login\\\",\\\"6\\\",\\\"1735581196\\\"]],\\\"ref\\\":\\\"Direct\\\",\\\"keyword\\\":{\\\"google\\\":\\\"\\\",\\\"yahoo\\\":\\\"\\\",\\\"bing\\\":\\\"\\\",\\\"ask\\\":\\\"\\\"},\\\"ua\\\":\\\"Mozilla\\\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\\\/537.36 (KHTML, like Gecko) Chrome\\\\/128.0.0.0 Safari\\\\/537.36 OPR\\\\/114.0.0.0\\\",\\\"screen\\\":\\\"1536x864\\\",\\\"time\\\":\\\"1735580909\\\",\\\"last_visit\\\":\\\"1735581196\\\"},\\\"7gahcfjqf4uvkhtlei7j1tkiuc\\\":{\\\"username\\\":\\\"oussemajebali\\\",\\\"pageview\\\":10,\\\"pages\\\":[[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/\\\",3,1735582023],[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/account\\\\/login\\\",\\\"2\\\",\\\"1735581527\\\"],[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/plagiarism-checker\\\",\\\"1\\\",\\\"1735581536\\\"],[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/find-dns-records\\\",\\\"1\\\",\\\"1735581551\\\"],[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/find-dns-records\\\\/output\\\",\\\"1\\\",\\\"1735581868\\\"],[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/domain-authority-checker\\\",\\\"1\\\",\\\"1735581951\\\"],[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/robots-txt-generator\\\",\\\"1\\\",\\\"1735581955\\\"]],\\\"ref\\\":\\\"Direct\\\",\\\"keyword\\\":{\\\"google\\\":\\\"\\\",\\\"yahoo\\\":\\\"\\\",\\\"bing\\\":\\\"\\\",\\\"ask\\\":\\\"\\\"},\\\"ua\\\":\\\"Mozilla\\\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\\\/537.36 (KHTML, like Gecko) Chrome\\\\/128.0.0.0 Safari\\\\/537.36 OPR\\\\/114.0.0.0\\\",\\\"screen\\\":\\\"1536x864\\\",\\\"time\\\":\\\"1735581500\\\",\\\"last_visit\\\":1735582023}},\\\"5.91.65.47\\\":{\\\"kj54v7lq1fudntv792otrfjnem\\\":{\\\"username\\\":\\\"Guest\\\",\\\"pageview\\\":\\\"1\\\",\\\"pages\\\":[[\\\"https:\\\\/\\\\/seo.mbi-network.ch\\\\/\\\",\\\"1\\\",\\\"1735581122\\\"]],\\\"ref\\\":\\\"Direct\\\",\\\"keyword\\\":{\\\"google\\\":\\\"\\\",\\\"yahoo\\\":\\\"\\\",\\\"bing\\\":\\\"\\\",\\\"ask\\\":\\\"\\\"},\\\"ua\\\":\\\"Mozilla\\\\/5.0 (Linux; Android 10; K) AppleWebKit\\\\/537.36 (KHTML, like Gecko) Chrome\\\\/131.0.0.0 Mobile Safari\\\\/537.36\\\",\\\"screen\\\":\\\"360x771\\\",\\\"time\\\":\\\"1735581122\\\",\\\"last_visit\\\":\\\"1735581122\\\"}}}');
 
 -- Table `rainbowphp_temp` --
 CREATE TABLE `rainbowphp_temp` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `task` text,
   `data` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `rainbowphp_temp` (`id`, `task`, `data`) VALUES
 (1, 'ddos', '{\"maxcount\":\"15\",\"2017-04-19\":{\"117.248.4.88\":{\"time\":\"1492552482\",\"hit\":\"6\"},\"banned\":[]},\"2017-05-27\":{\"127.0.0.1\":{\"time\":1495836926,\"hit\":\"1\"},\"banned\":[]}}'),
-(2, 'quick_login', '{\"2017-04-08\":{\"127.0.0.1\":{\"time\":\"1491592940\"},\"117.88.44.22\":{\"time\":\"1491593688\"},\"117.88.44.11\":{\"time\":\"1491593810\"}},\"2017-04-15\":{\"22.52.1.107\":{\"time\":\"1492201266\"}},\"2017-04-30\":{\"44.248.4.88\":{\"time\":\"1493502485\"}},\"2017-05-03\":{\"117.248.4.88\":{\"time\":\"1493806652\"}},\"2017-05-09\":{\"117.248.4.88\":{\"time\":\"1494305715\"}},\"2017-05-11\":{\"117.248.4.88\":{\"time\":\"1494505528\"}},\"2017-05-14\":{\"117.248.4.88\":{\"time\":1494773943}}}'),
+(2, 'quick_login', '{\"2017-04-08\":{\"127.0.0.1\":{\"time\":\"1491592940\"},\"117.88.44.22\":{\"time\":\"1491593688\"},\"117.88.44.11\":{\"time\":\"1491593810\"}},\"2017-04-15\":{\"22.52.1.107\":{\"time\":\"1492201266\"}},\"2017-04-30\":{\"44.248.4.88\":{\"time\":\"1493502485\"}},\"2017-05-03\":{\"117.248.4.88\":{\"time\":\"1493806652\"}},\"2017-05-09\":{\"117.248.4.88\":{\"time\":\"1494305715\"}},\"2017-05-11\":{\"117.248.4.88\":{\"time\":\"1494505528\"}},\"2017-05-14\":{\"117.248.4.88\":{\"time\":\"1494773943\"}},\"2024-12-30\":{\"197.26.89.151\":{\"time\":1735580931}}}'),
 (3, 'adblock', '{\"options\":\"force\",\"link\":\"{{baseLink}}test\",\"close\":{\"title\":\"Adblock detected!\",\"msg\":\"&lt;div class=&quot;text-center&quot;&gt;\\\\r\\\\n&lt;br&gt;\\\\r\\\\n&lt;i style=&quot;color: #e74c3c; font-size: 120px;&quot; class=&quot;fa fa-frown-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;\\/i&gt;\\\\r\\\\n&lt;p class=&quot;bold&quot;&gt;We have detected that you are using adblocking plugin in your browser.&lt;\\/p&gt;\\\\r\\\\n\\\\r\\\\n&lt;p  class=&quot;bold&quot;&gt;\\\\r\\\\nThe revenue we earn by the advertisements is used to manage this website, we request you to whitelist our website in your adblocking plugin.&lt;\\/p&gt;\\\\r\\\\n&lt;p&gt;&lt;button onclick=&quot;location.reload();&quot; class=&quot;btn btn-success&quot;&gt;Refresh this Page&lt;\\/button&gt;&lt;\\/p&gt;\\\\r\\\\n&lt;br&gt;\\\\r\\\\n&lt;\\/div&gt;\"},\"force\":{\"title\":\"Adblock detected!\",\"msg\":\"&lt;div class=&quot;text-center&quot;&gt;\\\\r\\\\n&lt;br&gt;\\\\r\\\\n&lt;i style=&quot;color: #e74c3c; font-size: 120px;&quot; class=&quot;fa fa-frown-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;\\/i&gt;\\\\r\\\\n&lt;p class=&quot;bold&quot;&gt;We have detected that you are using adblocking plugin in your browser.&lt;\\/p&gt;\\\\r\\\\n\\\\r\\\\n&lt;p  class=&quot;bold&quot;&gt;\\\\r\\\\nThe revenue we earn by the advertisements is used to manage this website, we request you to whitelist our website in your adblocking plugin.&lt;\\/p&gt;\\\\r\\\\n&lt;p&gt;&lt;button onclick=&quot;location.reload();&quot; class=&quot;btn btn-success&quot;&gt;Refresh this Page&lt;\\/button&gt;&lt;\\/p&gt;\\\\r\\\\n&lt;br&gt;\\\\r\\\\n&lt;\\/div&gt;\"},\"enable\":\"off\"}');
 
 -- Table `recent_history` --
 CREATE TABLE `recent_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `visitor_ip` text,
   `tool_name` text,
   `user` text,
   `date` text,
   `intDate` text,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `recent_history` (`id`, `visitor_ip`, `tool_name`, `user`, `date`, `intDate`) VALUES
+(1, '197.26.89.151', 'Plagiarism Checker', 'oussemajebali', '12/30/2024 11:28:56PM', '12/30/2024'),
+(2, '197.26.89.151', 'Find DNS records', 'oussemajebali', '12/30/2024 11:29:11PM', '12/30/2024'),
+(3, '197.26.89.151', 'Domain Authority Checker', 'oussemajebali', '12/30/2024 11:35:50PM', '12/30/2024'),
+(4, '197.26.89.151', 'Robots.txt Generator', 'oussemajebali', '12/30/2024 11:35:55PM', '12/30/2024');
 
 -- Table `seo_tools` --
 CREATE TABLE `seo_tools` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `tool_name` text,
   `tool_url` text,
   `uid` text,
@@ -796,7 +846,7 @@ CREATE TABLE `seo_tools` (
   `tool_no` text,
   `tool_login` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `seo_tools` (`id`, `tool_name`, `tool_url`, `uid`, `icon_name`, `meta_title`, `meta_des`, `meta_tags`, `about_tool`, `captcha`, `tool_show`, `tool_no`, `tool_login`) VALUES
 (1, 'Article Rewriter', 'article-rewriter', 'PR01', 'icons/article_rewriter.png', '100% Free Article Rewriter', '', 'article rewriter, spinner, article rewriter online', '<p>Enter more information about the Article Rewriter tool! </p> <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>', 'no', 'yes', '1', 'no'),
@@ -849,7 +899,7 @@ INSERT INTO `seo_tools` (`id`, `tool_name`, `tool_url`, `uid`, `icon_name`, `met
 
 -- Table `site_info` --
 CREATE TABLE `site_info` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `title` mediumtext,
   `des` text,
   `keyword` mediumtext,
@@ -860,36 +910,41 @@ CREATE TABLE `site_info` (
   `copyright` text,
   `other_settings` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `site_info` (`id`, `title`, `des`, `keyword`, `site_name`, `email`, `social_links`, `doForce`, `copyright`, `other_settings`) VALUES
-  (1, 'A to Z SEO Tools - 100% Free SEO Tools', 'AtoZ SEO Tools is a bundled collection of best seo tools website. We offer all for free of charge, Such as XML Sitemap Generator, Plagiarism Checker, Article Rewriter &amp; more.', 'seo tools, atoz, seo, free seo', 'A to Z SEO Tools', 'demo@prothemes.biz', '{\"face\":\"https:\\/\\/facebook.com\\/\",\"twit\":\"https:\\/\\/twitter.com\",\"gplus\":\"https:\\/\\/plus.google.com\",\"linkedin\":\"https:\\/\\/linkedin.com\"}', '[\"\",\"\"]', 'Copyright © 2021 ProThemes.Biz. All rights reserved.', '{\"other\":{\"ga\":\"\",\"footer_tags\":\"seo, turbo, balaji\",\"ddos_check\":\"\",\"ddos\":\"\",\"maintenance\":\"\",\"maintenance_mes\":\"We expect to be back within the hour.&lt;br\\/&gt;Sorry for the inconvenience.\",\"dbbackup\":{\"cronopt\":\"daily\"},\"ddosLimit\":\"15\",\"sitemap\":{\"cronopt\":\"daily\",\"auto\":\"on\",\"gzip\":\"\",\"cron\":\"\",\"multilingual\":\"\",\"priority\":\"0.9\",\"freqrange\":\"daily\"}}}');
+(1, 'A to Z SEO Tools - 100% Free SEO Tools', 'AtoZ SEO Tools is a bundled collection of best seo tools website. We offer all for free of charge, Such as XML Sitemap Generator, Plagiarism Checker, Article Rewriter &amp; more.', 'seo tools, atoz, seo, free seo', 'A to Z SEO Tools', 'demo@prothemes.biz', '{\"face\":\"https:\\/\\/facebook.com\\/\",\"twit\":\"https:\\/\\/twitter.com\",\"gplus\":\"https:\\/\\/plus.google.com\",\"linkedin\":\"https:\\/\\/linkedin.com\"}', '[\"\",\"\"]', 'Copyright © 2021 ProThemes.Biz. All rights reserved.', '{\"other\":{\"ga\":\"\",\"footer_tags\":\"seo, turbo, balaji\",\"ddos_check\":\"\",\"ddos\":\"\",\"maintenance\":\"\",\"maintenance_mes\":\"We expect to be back within the hour.&lt;br\\/&gt;Sorry for the inconvenience.\",\"ddosLimit\":\"15\",\"sitemap\":{\"cronopt\":\"daily\",\"auto\":\"on\",\"gzip\":[\"\",false],\"cron\":\"\",\"multilingual\":\"\",\"priority\":\"0.9\",\"freqrange\":\"daily\"},\"dbbackup\":{\"cron\":\"on\",\"cronopt\":\"daily\"}}}');
 
 -- Table `themes_data` --
 CREATE TABLE `themes_data` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `default_theme` text,
   `simpleX_theme` text,
+  `defaultext_theme` blob,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
-INSERT INTO `themes_data` (`id`, `default_theme`, `simpleX_theme`) VALUES
-(1, '{"general":{"imgLogo":"on","htmlLogo":"&lt;i class=&quot;fa fa-cubes iconBig&quot;&gt;&lt;\\/i&gt; {{site_name}}","logo":"theme\\/default\\/img\\/logo.png","favicon":"theme\\/default\\/img\\/favicon.ico","langSwitch":true,"sidebar":"right","sSearch":false,"iSearch":true,"browseBtn":true,"topTools":["PR02","PR08","PR19","PR22","PR24"]},"contact":{"about":"Our aim to make search engine optimization (SEO) easy. We provide simple, professional-quality SEO analysis and critical SEO monitoring for websites. By making our tools intuitive and easy to understand, we\\\\''ve helped thousands of small-business owners, webmasters and SEO professionals improve their online presence."},"custom":{"css":""}}', '{"general":{"imgLogo":"on","htmlLogo":"&lt;i class=&quot;fa fa-cubes iconBig&quot;&gt;&lt;\\/i&gt; {{site_name}}","logo":"theme\\/default\\/img\\/logo.png","favicon":"theme\\/default\\/img\\/favicon.ico","langSwitch":true,"sidebar":"right","sSearch":true,"iSearch":true,"browseBtn":false,"topTools":["PR02","PR08","PR19","PR22","PR24"]},"contact":{"about":"Our aim to make search engine optimization (SEO) easy. We provide simple, professional-quality SEO analysis and critical SEO monitoring for websites. By making our tools intuitive and easy to understand, we\\\\''ve helped thousands of small-business owners, webmasters and SEO professionals improve their online presence."},"custom":{"css":""}}');
+INSERT INTO `themes_data` (`id`, `default_theme`, `simpleX_theme`, `defaultext_theme`) VALUES
+(1, '{\"general\":{\"imgLogo\":\"on\",\"htmlLogo\":\"&lt;i class=&quot;fa fa-cubes iconBig&quot;&gt;&lt;\\/i&gt; {{site_name}}\",\"logo\":\"theme\\/default\\/img\\/logo.png\",\"favicon\":\"theme\\/default\\/img\\/favicon.ico\",\"langSwitch\":true,\"sidebar\":\"right\",\"sSearch\":false,\"iSearch\":true,\"browseBtn\":true,\"topTools\":[\"PR02\",\"PR08\",\"PR19\",\"PR22\",\"PR24\"]},\"contact\":{\"about\":\"Our aim to make search engine optimization (SEO) easy. We provide simple, professional-quality SEO analysis and critical SEO monitoring for websites. By making our tools intuitive and easy to understand, we\\\\\'ve helped thousands of small-business owners, webmasters and SEO professionals improve their online presence.\"},\"custom\":{\"css\":\"\"}}', '{\"general\":{\"imgLogo\":\"on\",\"htmlLogo\":\"&lt;i class=&quot;fa fa-cubes iconBig&quot;&gt;&lt;\\/i&gt; {{site_name}}\",\"logo\":\"theme\\/default\\/img\\/logo.png\",\"favicon\":\"theme\\/default\\/img\\/favicon.ico\",\"langSwitch\":true,\"sidebar\":\"right\",\"sSearch\":true,\"iSearch\":true,\"browseBtn\":false,\"topTools\":[\"PR02\",\"PR08\",\"PR19\",\"PR22\",\"PR24\"]},\"contact\":{\"about\":\"Our aim to make search engine optimization (SEO) easy. We provide simple, professional-quality SEO analysis and critical SEO monitoring for websites. By making our tools intuitive and easy to understand, we\\\\\'ve helped thousands of small-business owners, webmasters and SEO professionals improve their online presence.\"},\"custom\":{\"css\":\"\"}}', '{\"color\":{\"primary\":\"#009dc5\",\"secondary\":\"#3bb2d0\",\"box\":\"#5e5a65\",\"footer1\":\"#506273\",\"footer2\":\"#485a6c\"},\"general\":{\"imgLogo\":\"on\",\"htmlLogo\":\"&lt;i class=&quot;fa fa-cubes iconBig&quot;&gt;&lt;\\/i&gt; {{site_name}}\",\"logo\":\"theme\\/default\\/img\\/logo.png\",\"favicon\":\"theme\\/default\\/img\\/favicon.ico\",\"langSwitch\":true,\"sidebar\":\"right\",\"sSearch\":false,\"iSearch\":true,\"browseBtn\":true,\"topTools\":[\"PR02\",\"PR08\",\"PR19\",\"PR22\",\"PR24\"],\"popTools\":[\"PR01\",\"PR07\",\"PR09\",\"PR15\",\"PR19\",\"PR24\",\"PR42\",\"PR49\"]},\"contact\":{\"about\":\"Our aim to make search engine optimization (SEO) easy. We provide simple, professional-quality SEO analysis and critical SEO monitoring for websites. By making our tools intuitive and easy to understand, we\\\\\'ve helped thousands of small-business owners, webmasters and SEO professionals improve their online presence.\"},\"custom\":{\"css\":\"\"}}');
 
 -- Table `user_input_history` --
 CREATE TABLE `user_input_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `visitor_ip` text,
   `tool_name` text,
   `user` text,
   `date` text,
   `user_input` text,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `user_input_history` (`id`, `visitor_ip`, `tool_name`, `user`, `date`, `user_input`) VALUES
+(1, '197.26.89.151', 'Find DNS records', 'oussemajebali', '12/30/2024 11:29:19PM', 'http://seo.mbi-network.ch'),
+(2, '197.26.89.151', 'Find DNS records', 'oussemajebali', '12/30/2024 11:34:27PM', 'http://seo.mbi-network.ch');
 
 -- Table `user_settings` --
 CREATE TABLE `user_settings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `enable_reg` text,
   `enable_oauth` text,
   `enable_quick` text,
@@ -897,14 +952,14 @@ CREATE TABLE `user_settings` (
   `other_settings` text,
   `visitors_limit` text,
   PRIMARY KEY (`id`)
-) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `user_settings` (`id`, `enable_reg`, `enable_oauth`, `enable_quick`, `oauth_keys`, `other_settings`, `visitors_limit`) VALUES
 (1, 'on', 'on', 'on', '{\"oauth\":{\"g_client_id\":\"\",\"g_client_secret\":\"\",\"g_redirect_uri\":\"http:\\/\\/tweb.dev\\/?route=google\",\"fb_app_id\":\"\",\"fb_app_secret\":\"\",\"fb_redirect_uri\":\"http:\\/\\/tweb.dev\\/?route=facebook\",\"twitter_key\":\"\",\"twitter_secret\":\"\",\"twitter_redirect_uri\":\"http:\\/\\/tweb.dev\\/?route=twitter\"}}', '', '10');
 
 -- Table `users` --
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `oauth_uid` text,
   `username` text,
   `email_id` text,
@@ -929,44 +984,8 @@ CREATE TABLE `users` (
   `country` text,
   `userdata` text,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
-ALTER TABLE ads ADD smallSEOAd text, ADD smallSEOAd1 text, ADD smallSEOAd2 text;
+INSERT INTO `users` (`id`, `oauth_uid`, `username`, `email_id`, `full_name`, `platform`, `password`, `verified`, `picture`, `date`, `added_date`, `ip`, `firstname`, `lastname`, `company`, `telephone`, `address1`, `address2`, `city`, `state`, `statestr`, `postcode`, `country`, `userdata`) VALUES
+(1, '0', 'oussemajebali', 'oussemajebali@gmail.com', 'oussema jebali', 'Direct', 'ca491dc1b508d6459f82fac7cc51b8bd', '1', '', '', '12/30/2024 11:22:11PM', '197.26.89.151', 'oussema', 'jebali', 'MBI', '+216 55516663', 'ADOIHJ', 'OSHIS', 'OIDSHIF', 'TU', 'Tunis', '8090', 'TN', '');
 
-UPDATE `ads` SET `smallSEOAd`='&lt;br&gt;&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/720x90.png&quot; /&gt;', `smallSEOAd1`='&lt;br&gt;&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/720x90.png&quot; /&gt;&lt;br&gt;',	`smallSEOAd2`='&lt;br&gt;&lt;img class=&quot;imageres&quot; src=&quot;https://prothemes.biz/image/dummy-xd/300x250.png&quot; /&gt;&lt;br&gt;';
-
-CREATE TABLE `category` (
-                            `id` int(11) NOT NULL AUTO_INCREMENT,
-                            `name` text DEFAULT NULL,
-                            `des` text DEFAULT NULL,
-                            `sort` int(11) DEFAULT NULL,
-                            `pattern` int(11) DEFAULT NULL,
-                            `enabled` int(11) DEFAULT NULL,
-                            `tools` blob DEFAULT NULL,
-                            PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `category` (`id`, `name`, `des`, `sort`, `pattern`, `enabled`, `tools`) VALUES
-(1,	'Text Content',	'A complete set of text tools is now at your fingertips. Check plagiarism, rewrite an article, run a spell checker, count words or change text case.',	1,	2,	1,	'[\\\"PR02\\\",\\\"PR01\\\",\\\"PR11\\\",\\\"PR39\\\"]'),
-(3,	'Keywords',	'For webmasters and SEO professionals, free, powerful and efficient keyword tools that provide you with thorough keyword research and analysis.',	2,	1,	1,	'[\\\"PR06\\\",\\\"PR16\\\",\\\"PR48\\\"]'),
-(4,	'Backlink',	'A set of backlink analysis tool to give you a comprehensive inside view of your link profile.',	3,	1,	1,	'[\\\"PR03\\\",\\\"PR09\\\",\\\"PR46\\\",\\\"PR13\\\",\\\"PR37\\\",\\\"PR32\\\"]'),
-(5,	'Website Management',	'If you are struggling to get more traffic and enhance your website performance, then use these website management tools and in-depth web analysis.',	4,	1,	1,	'[\\\"PR40\\\",\\\"PR28\\\",\\\"PR08\\\",\\\"PR22\\\",\\\"PR27\\\",\\\"PR25\\\",\\\"US02\\\",\\\"PR31\\\",\\\"PR33\\\",\\\"PR44\\\",\\\"PR07\\\",\\\"PR35\\\",\\\"PR12\\\"]'),
-(6,	'Website Tracking',	'A list of free tools in one place to measure, monitor, and keep track of your websites performance.',	6,	1,	1,	'[\\\"PR20\\\",\\\"PR29\\\",\\\"PR26\\\",\\\"PR38\\\",\\\"PR41\\\",\\\"PR10\\\",\\\"PR47\\\",\\\"PR45\\\",\\\"PR19\\\",\\\"PR24\\\",\\\"PR50\\\",\\\"PR49\\\",\\\"PR36\\\",\\\"PR23\\\",\\\"PR17\\\",\\\"PR15\\\",\\\"CS02\\\",\\\"PR43\\\",\\\"SD51\\\"]'),
-(7,	'Proxy',	'Use proxy tools to know your IP location or to get a free daily proxy list.',	7,	1,	1,	'[\\\"PR15\\\",\\\"CS02\\\"]'),
-(8,	'Meta Tags',	'Create new meta tags or analyze the existing ones to get an in-depth analysis of your meta tags and web pages.',	9,	1,	1,	'[\\\"PR04\\\",\\\"PR05\\\"]'),
-(9,	'Domains',	'A range of domain related tools to find out domain age, domain authority, DNS records or expired domains, etc.',	8,	1,	1,	'[\\\"PR18\\\",\\\"PR49\\\",\\\"PR20\\\",\\\"PR34\\\",\\\"PR42\\\",\\\"PR30\\\"]'),
-(11,	'Images Editing',	'Create a favicon, compress an image or resize a picture with a single click. All essentials for image editing are available in one place.',	10,	1,	1,	'[\\\"IHT01\\\",\\\"CO001\\\",\\\"AT5130\\\",\\\"AT5129\\\"]'),
-(19,	'Other',	'Simply useful tools for various tasks',	11,	NULL,	1,	'[\\\"AT5136\\\",\\\"AT5135\\\",\\\"AT5132\\\",\\\"AT5133\\\",\\\"AT5134\\\",\\\"AT5131\\\"]');
-
-CREATE TABLE `category_option` (
-                                   `id` int(11) NOT NULL AUTO_INCREMENT,
-                                   `category` int(11) DEFAULT NULL,
-                                   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `category_option` (`id`, `category`) VALUES
-(1,	1);
-
-ALTER TABLE `themes_data` ADD `defaultext_theme` blob NULL;
-
-UPDATE `themes_data` SET  `defaultext_theme` = '{\"color\":{\"primary\":\"#009dc5\",\"secondary\":\"#3bb2d0\",\"box\":\"#5e5a65\",\"footer1\":\"#506273\",\"footer2\":\"#485a6c\"},\"general\":{\"imgLogo\":\"on\",\"htmlLogo\":\"&lt;i class=&quot;fa fa-cubes iconBig&quot;&gt;&lt;\\/i&gt; {{site_name}}\",\"logo\":\"theme\\/default\\/img\\/logo.png\",\"favicon\":\"theme\\/default\\/img\\/favicon.ico\",\"langSwitch\":true,\"sidebar\":\"right\",\"sSearch\":false,\"iSearch\":true,\"browseBtn\":true,\"topTools\":[\"PR02\",\"PR08\",\"PR19\",\"PR22\",\"PR24\"],\"popTools\":[\"PR01\",\"PR07\",\"PR09\",\"PR15\",\"PR19\",\"PR24\",\"PR42\",\"PR49\"]},\"contact\":{\"about\":\"Our aim to make search engine optimization (SEO) easy. We provide simple, professional-quality SEO analysis and critical SEO monitoring for websites. By making our tools intuitive and easy to understand, we\\\\\'ve helped thousands of small-business owners, webmasters and SEO professionals improve their online presence.\"},\"custom\":{\"css\":\"\"}}';
